@@ -79,6 +79,7 @@ const Create = () => {
                 <Select
                 value={category}
                 label="Topic"
+                color="secondary"
                 onChange={(e) => setCategory(e.target.value)}
                 >
                   { categories.map((category) => (
