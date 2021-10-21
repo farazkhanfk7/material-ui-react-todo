@@ -26,27 +26,6 @@ export default function ButtonAppBar() {
       setState({ ...state, [anchor]: open });
     };
 
-    const list = (anchor) => (
-      <Box
-        sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-        role="presentation"
-        onClick={toggleDrawer(anchor, false)}
-        onKeyDown={toggleDrawer(anchor, false)}
-      >
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-      </Box>
-    );
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -67,7 +46,24 @@ export default function ButtonAppBar() {
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
           >
-            {list(anchor)}
+            <Box
+              sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+              role="presentation"
+              onClick={toggleDrawer(anchor, false)}
+              onKeyDown={toggleDrawer(anchor, false)}
+            >
+          <List>
+            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+              <ListItem button key={text}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            ))}
+          </List>
+          <Divider />
+        </Box>
           </Drawer>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
