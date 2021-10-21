@@ -8,7 +8,7 @@ import { ThemeProvider } from '@mui/material';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#3f51b5',
+      main: '#898da3',
     },
     secondary: {
       main: '#8bc34a',
@@ -20,8 +20,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
     <div>
-      <Appbar/>
       <Router>
+        <Appbar/>
         <Switch>
           <Route exact path="/">
             <Notes/>

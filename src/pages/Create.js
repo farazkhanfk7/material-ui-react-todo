@@ -8,6 +8,7 @@ import FormLabel from '@mui/material/FormLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl'
+import { useHistory } from "react-router";
 
 const categories = [
     'JavaScript',
@@ -22,22 +23,31 @@ const Create = () => {
     const [titleError, setTitleError] = useState(false)
     const [detailsError, setDetailsError] = useState(false)
     const [category, setCategory] = useState('JavaScript')
+    const history = useHistory();
   
     const handleSubmit = (e) => {
-      e.preventDefault()
-      setTitleError(false)
-      setDetailsError(false)
-  
-      if (title === '') {
-        setTitleError(true)
+      e.preventDefault();
+      setTitleError(false);
+      setDetailsError(false);
+
+      if (title === "") {
+        setTitleError(true);
       }
-      if (details === '') {
-        setDetailsError(true)
+      if (details === "") {
+        setDetailsError(true);
       }
       if (title && details && category) {
-        console.log(title, details, category)
-      } 
-    }
+        const note = { title, details, category };
+        fetch("http://localhost:8000/notes/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(note),
+        }).then((res) => {
+          //   console.log("New note added");
+          history.push("/");
+        });
+      }
+    };
     
     return (
       <Container size="sm">

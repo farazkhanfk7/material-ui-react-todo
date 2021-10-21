@@ -1,0 +1,28 @@
+{
+  "notes": [
+    {
+      "title": "Complete Redux and hooks tutorial",
+      "details": "I have to complete react redux and playlist of all react hooks",
+      "category": "JavaScript",
+      "id": 3
+    },
+    {
+      "title": "Complete DSA course",
+      "details": "DSA course on udemy + solve leetcode problems",
+      "category": "C++",
+      "id": 4
+    },
+    {
+      "title": "Django Practice",
+      "details": "Practice django again, learn testing, apis, graphql auth",
+      "category": "Python",
+      "id": 5
+    },
+    {
+      "title": "Learn Golang",
+      "details": "Go through golang playlist again",
+      "category": "Golang",
+      "id": 6
+    }
+  ]
+}
